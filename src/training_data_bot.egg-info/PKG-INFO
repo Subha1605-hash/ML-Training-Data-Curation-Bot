@@ -1,0 +1,312 @@
+Metadata-Version: 2.4
+Name: training-data-bot
+Version: 0.1.0
+Summary: Enterprise-grade training data curation bot for LLM fine-tuning
+Author-email: Training Data Bot Team <team@company.com>
+License: MIT
+Project-URL: Homepage, https://github.com/company/training-data-bot
+Project-URL: Documentation, https://training-data-bot.readthedocs.io
+Project-URL: Repository, https://github.com/company/training-data-bot
+Project-URL: Issues, https://github.com/company/training-data-bot/issues
+Keywords: llm,training-data,curation,ai,machine-learning
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pydantic-settings>=2.0.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: typer[all]>=0.9.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: loguru>=0.7.0
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: aiohttp>=3.8.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: tenacity>=8.2.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: datasets>=2.14.0
+Requires-Dist: jsonlines>=4.0.0
+Requires-Dist: spacy>=3.6.0
+Requires-Dist: nltk>=3.8.0
+Requires-Dist: sentence-transformers>=2.2.0
+Requires-Dist: transformers>=4.30.0
+Requires-Dist: tokenizers>=0.13.0
+Requires-Dist: PyMuPDF>=1.23.0
+Requires-Dist: python-docx>=0.8.11
+Requires-Dist: pdfminer.six>=20221105
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: markdownify>=0.11.6
+Requires-Dist: python-magic>=0.4.27
+Requires-Dist: selenium>=4.10.0
+Requires-Dist: playwright>=1.35.0
+Requires-Dist: scrapy>=2.9.0
+Requires-Dist: detoxify>=0.5.2
+Requires-Dist: faiss-cpu>=1.7.4
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: hydra-core>=1.3.0
+Requires-Dist: omegaconf>=2.3.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: streamlit>=1.25.0
+Requires-Dist: plotly>=5.15.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: seaborn>=0.12.0
+Requires-Dist: sqlalchemy>=2.0.0
+Requires-Dist: alembic>=1.11.0
+Requires-Dist: redis>=4.6.0
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: pytest-asyncio>=0.21.0
+Requires-Dist: pytest-cov>=4.1.0
+Requires-Dist: black>=23.0.0
+Requires-Dist: isort>=5.12.0
+Requires-Dist: flake8>=6.0.0
+Requires-Dist: mypy>=1.4.0
+Requires-Dist: cryptography>=41.0.0
+Requires-Dist: bcrypt>=4.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.4.0; extra == "dev"
+Requires-Dist: pre-commit>=3.3.0; extra == "dev"
+Provides-Extra: gpu
+Requires-Dist: faiss-gpu>=1.7.4; extra == "gpu"
+Requires-Dist: torch>=2.0.0; extra == "gpu"
+Provides-Extra: all
+Requires-Dist: training-data-bot[dev,gpu]; extra == "all"
+
+# 🤖 Training Data Curation Bot
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/training-data-bot)
+[![Python](https://img.shields.io/badge/python-3.8+-brightgreen.svg)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+Enterprise-grade **Training Data Curation Bot** for LLM fine-tuning using **Decodo** (web scraping) + **OpenAI** (AI generation) + **Python automation**.
+
+## 🚀 **What It Does**
+
+Transform any website or document into high-quality training data for your LLMs:
+
+1. **🌐 Web Scraping**: Extract content from any website using Decodo's professional scraping API
+2. **🤖 AI Generation**: Generate Q&A pairs, summaries, classifications using OpenAI/Anthropic
+3. **📊 Quality Control**: Built-in quality metrics and filtering
+4. **💾 Export Ready**: Output JSONL/CSV files ready for LLM training
+
+## ✨ **Key Features**
+
+- **🎯 Multi-Task Generation**: Q&A, Summarization, Classification, NER
+- **🌐 Web Scraping**: Real websites → training data with Decodo integration
+- **📁 Multi-Format Support**: PDF, DOCX, TXT, HTML, JSON, CSV, URLs
+- **🤖 AI Providers**: OpenAI, Anthropic, with intelligent fallbacks
+- **📊 Quality Metrics**: Toxicity, bias, diversity, coherence scoring
+- **⚡ Async Processing**: High-performance parallel processing
+- **🖥️ CLI + Dashboard**: Command-line tools + Streamlit web interface
+- **🏢 Enterprise Ready**: Logging, monitoring, rate limiting, error handling
+
+## 🛠️ **Quick Start**
+
+### **Installation**
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/training-data-bot.git
+cd training-data-bot
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -e .
+```
+
+### **API Configuration**
+
+Create a `.env` file with your API keys:
+
+```env
+# OpenAI (for AI text generation)
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Decodo (for web scraping) - Optional
+DECODO_USER_ID=your_decodo_user_id
+DECODO_BASIC_AUTH=your_decodo_basic_auth_token
+
+# Anthropic (alternative to OpenAI) - Optional
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+```
+
+### **Usage Examples**
+
+#### **🖥️ Web Interface (Recommended)**
+
+Launch the interactive web application:
+
+```bash
+streamlit run web_scraper_app.py --server.port 8502
+```
+
+Then open http://localhost:8502 in your browser.
+
+#### **⌨️ Command Line Interface**
+
+Generate Q&A from local documents:
+```bash
+tdb generate qa -i sample_data/healthcare_ai.txt -o qa_dataset.jsonl -n 5
+```
+
+Process entire directories:
+```bash
+tdb process -i ./documents/ -o ./output/dataset.jsonl --task-types qa_generation summarization
+```
+
+Launch the dashboard:
+```bash
+tdb dashboard --port 8501
+```
+
+#### **🐍 Python API**
+
+```python
+from training_data_bot import TrainingDataBot, TaskType
+
+# Initialize the bot
+bot = TrainingDataBot()
+
+# Load documents
+documents = await bot.load_documents(["sample_data/"])
+
+# Generate training data
+dataset = await bot.process_documents(
+    documents=documents,
+    task_types=[TaskType.QA_GENERATION, TaskType.SUMMARIZATION]
+)
+
+# Export results
+await bot.export_dataset(dataset, "output/training_data.jsonl")
+```
+
+## 📁 **Project Structure**
+
+```
+training-data-bot/
+├── src/training_data_bot/          # Main package
+│   ├── ai/                         # AI client (OpenAI/Anthropic)
+│   ├── decodo/                     # Decodo web scraping client
+│   ├── sources/                    # Document loaders (PDF, DOCX, etc.)
+│   ├── tasks/                      # Task generators (Q&A, summarization)
+│   ├── preprocessing/              # Text processing and chunking
+│   ├── evaluation/                 # Quality assessment
+│   ├── storage/                    # Export and database functionality
+│   ├── dashboard/                  # Streamlit dashboard
+│   └── cli/                        # Command-line interface
+├── web_scraper_app.py              # Interactive web application
+├── sample_data/                    # Example documents
+├── configs/                        # Configuration files
+└── output/                         # Generated datasets
+```
+
+## 🎯 **Architecture**
+
+```mermaid
+graph TD
+    A[Web URL/Documents] --> B[Decodo Scraper]
+    A --> C[File Loaders]
+    B --> D[Text Preprocessor]
+    C --> D
+    D --> E[AI Client OpenAI/Anthropic]
+    E --> F[Quality Evaluator]
+    F --> G[Dataset Exporter]
+    G --> H[Training Data JSONL/CSV]
+```
+
+## 🌐 **Web Application Features**
+
+The **`web_scraper_app.py`** provides a beautiful interface for:
+
+- **🔧 Easy Configuration**: API status, task settings, chunk sizes
+- **🌐 URL Scraping**: Enter any website URL and scrape content
+- **🤖 AI Generation**: Real-time training data generation with progress tracking
+- **📊 Analytics Dashboard**: Token usage, costs, confidence scores
+- **💾 Export Options**: Download JSONL/JSON files instantly
+
+## 📊 **Supported Tasks**
+
+| Task Type | Description | Output Format |
+|-----------|-------------|---------------|
+| **Q&A Generation** | Creates question-answer pairs | `{"input": "text", "output": "Q: ... A: ..."}` |
+| **Summarization** | Generates concise summaries | `{"input": "text", "output": "Summary: ..."}` |
+| **Classification** | Categorizes text content | `{"input": "text", "output": "Category: ..."}` |
+| **NER** | Named entity recognition | `{"input": "text", "output": "Entities: ..."}` |
+
+## 🔧 **Configuration**
+
+The system uses environment variables for configuration:
+
+```env
+# Core Settings
+ENVIRONMENT=development
+LOG_LEVEL=INFO
+MAX_WORKERS=4
+
+# Processing
+CHUNK_SIZE=800
+BATCH_SIZE=10
+
+# Quality Thresholds
+TOXICITY_THRESHOLD=0.8
+MIN_TEXT_LENGTH=10
+MAX_TEXT_LENGTH=5000
+```
+
+## 🚦 **Quality Control**
+
+Built-in quality metrics ensure high-quality training data:
+
+- **🔍 Toxicity Detection**: Filters harmful content
+- **⚖️ Bias Assessment**: Identifies potential biases
+- **🎯 Diversity Scoring**: Ensures varied training examples
+- **📏 Length Validation**: Optimal text length constraints
+- **✅ Coherence Checks**: Validates logical consistency
+
+## 🏗️ **Enterprise Features**
+
+- **📊 Monitoring**: Real-time metrics and health checks
+- **🔐 Security**: API key encryption and audit logging
+- **⚡ Performance**: Async processing with connection pooling
+- **🔄 Reliability**: Automatic retries and fallback mechanisms
+- **📈 Scalability**: Horizontal scaling support
+- **🗃️ Storage**: Multiple export formats and database integration
+
+## 🤝 **Contributing**
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and add tests
+4. Commit: `git commit -m 'Add amazing feature'`
+5. Push: `git push origin feature/amazing-feature`
+6. Open a Pull Request
+
+## 📄 **License**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙋 **Support**
+
+- **Documentation**: [Wiki](https://github.com/yourusername/training-data-bot/wiki)
+- **Issues**: [GitHub Issues](https://github.com/yourusername/training-data-bot/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/training-data-bot/discussions)
+
+---
+
+**⭐ Star this repo if it helps you create better training data!** 

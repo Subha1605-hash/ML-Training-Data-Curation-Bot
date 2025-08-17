@@ -1,0 +1,3 @@
+[console_scripts]
+tdb = training_data_bot.cli:app
+training-data-bot = training_data_bot.cli:app

@@ -1,0 +1,188 @@
+# Training Data Bot Configuration
+# =================================
+
+# Application Settings
+app:
+  name: "Training Data Curation Bot"
+  version: "0.1.0"
+  description: "Enterprise-grade training data curation for LLM fine-tuning"
+  environment: "development"
+  debug: false
+
+# Decodo API Configuration
+decodo:
+  base_url: "https://api.decodo.com"
+  timeout: 60
+  max_retries: 3
+  rate_limit: 10  # requests per second
+  backoff_factor: 2
+  retry_status_codes: [429, 502, 503, 504]
+
+# Processing Configuration
+processing:
+  max_workers: 4
+  chunk_size: 1000
+  chunk_overlap: 200
+  batch_size: 10
+  async_batch_size: 5
+  connection_pool_size: 10
+
+# Storage Configuration
+storage:
+  data_dir: "./data"
+  output_dir: "./outputs"
+  cache_dir: "./cache"
+  temp_dir: "./temp"
+  database_url: "sqlite:///./data/training_data_bot.db"
+  redis_url: "redis://localhost:6379/0"
+
+# Dashboard Configuration
+dashboard:
+  host: "localhost"
+  port: 8501
+  debug: false
+  title: "Training Data Curation Dashboard"
+  
+# Quality Thresholds
+quality:
+  toxicity_threshold: 0.8
+  bias_threshold: 0.7
+  min_text_length: 10
+  max_text_length: 5000
+  similarity_threshold: 0.85
+  diversity_threshold: 0.6
+
+# Export Settings
+export:
+  default_format: "jsonl"
+  include_metadata: true
+  include_lineage: true
+  split_ratios:
+    train: 0.8
+    validation: 0.1
+    test: 0.1
+  formats:
+    - "jsonl"
+    - "csv"
+    - "parquet"
+    - "huggingface"
+
+# Task Templates
+tasks:
+  qa_generation:
+    max_questions: 5
+    question_types: ["factual", "analytical", "creative"]
+    include_context: true
+  
+  classification:
+    categories: ["intent", "sentiment", "topic"]
+    confidence_threshold: 0.8
+  
+  summarization:
+    max_length: 200
+    min_length: 50
+    style: "extractive"
+
+# Preprocessing
+preprocessing:
+  enable_cleaning: true
+  enable_deduplication: true
+  enable_filtering: true
+  remove_personal_info: true
+  
+  cleaning:
+    remove_urls: true
+    remove_emails: true
+    normalize_whitespace: true
+    fix_encoding: true
+  
+  chunking:
+    strategy: "semantic"  # or "fixed", "sentence"
+    preserve_context: true
+    max_chunk_size: 1000
+    overlap_size: 200
+
+# Evaluation
+evaluation:
+  enable_toxicity_check: true
+  enable_bias_check: true
+  enable_diversity_check: true
+  enable_quality_scoring: true
+  
+  toxicity:
+    model: "unitary/toxic-bert"
+    threshold: 0.8
+  
+  bias:
+    check_gender: true
+    check_racial: true
+    check_religious: true
+    
+  diversity:
+    semantic_similarity_check: true
+    lexical_diversity_check: true
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_logging: true
+  log_file: "./logs/training_data_bot.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# Monitoring
+monitoring:
+  enable_metrics: true
+  metrics_port: 8080
+  enable_health_check: true
+  track_token_usage: true
+  track_processing_time: true
+
+# Security
+security:
+  encrypt_credentials: true
+  enable_rate_limiting: true
+  audit_logging: true
+  
+# Browser Settings (for web scraping)
+browser:
+  headless: true
+  timeout: 30
+  user_agent: "TrainingDataBot/1.0"
+  wait_for_load: true
+
+# Performance
+performance:
+  enable_caching: true
+  cache_ttl: 3600
+  memory_limit: "2GB"
+  disk_cache_size: "1GB"
+
+# Model Settings
+models:
+  sentence_transformer: "all-MiniLM-L6-v2"
+  toxicity_model: "unitary/toxic-bert"
+  bias_model: "textattack/roberta-base-CoLA"
+  
+# File Processing
+file_processing:
+  supported_formats:
+    - "pdf"
+    - "docx"
+    - "txt"
+    - "md"
+    - "html"
+    - "json"
+    - "csv"
+  
+  pdf:
+    extract_images: false
+    extract_tables: true
+    preserve_layout: true
+  
+  web:
+    follow_redirects: true
+    timeout: 30
+    max_pages: 100
+    respect_robots: true 
